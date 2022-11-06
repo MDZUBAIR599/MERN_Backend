@@ -10,11 +10,13 @@ const userschema = new mongoose.Schema({
 const UserModel = mongoose.model("FlipkartUsers", userschema )
 
 const cartschema = new mongoose.Schema({
+   image_url:{type:String },
    item:{type: String, required:true},
-   price:{type: Number, required:true},
-   qty:{type: Number, required:true},
+   price:{type: String, required:true},
+   qty:{type: String, required:true},
+   
 })
-const FlipkartModel = mongoose.model("Flipcartproducts", cartschema )
+const FlipkartModel = mongoose.model("cartproducts", cartschema )
 
 
 module.exports={UserModel,FlipkartModel}

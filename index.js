@@ -5,15 +5,21 @@ const { connection } = require("./Config/db.js");
 const { UserModel } = require("./Models/UserModel.js");
 
 require("dotenv").config()
-
+const fileUpload = require("express-fileupload");
 const bcrypt = require("bcrypt")
 const app = express();
 const jwt = require("jsonwebtoken");
 const { Authentication } = require("./Midlewares/Authentication.js");
 // const { BMI_Model } = require("./Models/BMI_Model.js");
 const cors = require("cors");
+
 const { ProductRouter } = require("./Routers/Products_Router.js");
 app.use(express.json());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 app.use(cors())
 
 
